@@ -1,6 +1,7 @@
 
 import { Pool } from '../db.js'
 export const getEmployees = async (req, res) => {
+   
     try {
         const { id } = req.params
         const [rows] = await Pool.query('SELECT * FROM employee WHERE id = ?', [id])
@@ -8,7 +9,7 @@ export const getEmployees = async (req, res) => {
             message: 'Employeee not found'
         })
         res.send(rows[0])
-        console.log(id)
+        console.log("hola",id)
     } catch (error) {
         return res.status(500).json({
             message: "Something goes wrong"

@@ -9,3 +9,10 @@ export const Pool = createPool({
     database: DB_DATABASE
 })
 
+try {
+    const connection = await Pool.getConnection();
+  } catch (err) {
+    if (err instanceof Error) {
+      console.log(err);
+    }
+  }
